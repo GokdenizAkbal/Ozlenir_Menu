@@ -26,15 +26,15 @@
         .slider {
             position: relative;
             width: 100%;
-            max-width: 100%;
+            height: calc(100vh - 60px);
             overflow: hidden;
-            aspect-ratio: 16/9;
         }
 
         .slides {
             display: flex;
             transition: transform 0.6s ease-in-out;
             width: 200%;
+            height: 100%;
         }
 
         .slides img {
@@ -58,18 +58,6 @@
 
         .prev { left: 10px; }
         .next { right: 10px; }
-
-
-        @media (max-width: 600px) {
-            .navbar {
-                font-size: 18px;
-                padding: 12px 15px;
-            }
-            .prev, .next {
-                font-size: 18px;
-                padding: 8px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -103,10 +91,6 @@
     document.querySelector('.next').addEventListener('click', () => {
         showSlide(index + 1);
     });
-
-    setInterval(() => {
-        showSlide(index + 1);
-    }, 5000);
 </script>
 </body>
 </html>
