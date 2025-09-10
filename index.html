@@ -1,69 +1,66 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menü</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #fafafa;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menü</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fafafa;
+}
 
-        .navbar {
-            background-color: #a30000;
-            color: white;
-            padding: 15px 20px;
-            text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+.navbar {
+    background-color: #a30000;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-        .slider {
-            position: relative;
-            width: 100%;
-            height: calc(100vh - 60px);
-            overflow: hidden;
-        }
+.slider {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+}
 
-        .slides {
-            display: flex;
-            transition: transform 0.6s ease-in-out;
-            width: 200%;
-            height: 100%;
-        }
+.slides {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+}
 
-        .slides img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
 
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0,0,0,0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 20px;
-            border-radius: 50%;
-        }
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+}
 
-        .prev { left: 10px; }
-        .next { right: 10px; }
-    </style>
+.prev { left: 10px; }
+.next { right: 10px; }
+</style>
 </head>
 <body>
-<div class="navbar">
-    📋 Özlenir Menü
-</div>
+<div class="navbar">📋 Özlenir Menü</div>
 
 <div class="slider">
     <div class="slides">
@@ -75,22 +72,22 @@
 </div>
 
 <script>
-    const slides = document.querySelector('.slides');
-    const totalSlides = document.querySelectorAll('.slides img').length;
-    let index = 0;
+const slides = document.querySelector('.slides');
+const totalSlides = document.querySelectorAll('.slides img').length;
+let index = 0;
 
-    function showSlide(i) {
-        index = (i + totalSlides) % totalSlides;
-        slides.style.transform = `translateX(-${index * 100}%)`;
-    }
+function showSlide(i) {
+    index = (i + totalSlides) % totalSlides;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+}
 
-    document.querySelector('.prev').addEventListener('click', () => {
-        showSlide(index - 1);
-    });
+document.querySelector('.prev').addEventListener('click', () => {
+    showSlide(index - 1);
+});
 
-    document.querySelector('.next').addEventListener('click', () => {
-        showSlide(index + 1);
-    });
+document.querySelector('.next').addEventListener('click', () => {
+    showSlide(index + 1);
+});
 </script>
 </body>
 </html>
